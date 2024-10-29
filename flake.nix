@@ -1,6 +1,5 @@
 {
-  description = "A Qobuz downloader for the terminal written in Python.";
-  inputs = {
+  description = "A Qobuz downloader for the terminal written in Python."; inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     poetry2nix = {
@@ -14,7 +13,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         # see https://github.com/nix-community/poetry2nix/tree/master#api for more functions and examples.
-        myapp = { poetry2nix, lib }: poetry2nix.mkPoetryApplication {
+        qobuz-dl = { poetry2nix, lib }: poetry2nix.mkPoetryApplication {
           projectDir = self;
           overrides = poetry2nix.overrides.withDefaults (final: super:
             lib.mapAttrs
@@ -33,13 +32,13 @@
           overlays = [
             poetry2nix.overlays.default
             (final: _: {
-              myapp = final.callPackage myapp { };
+              qobuz-dl = final.callPackage qobuz-dl { };
             })
           ];
         };
       in
       {
-        packages.default = pkgs.myapp;
+        packages.default = pkgs.qobuz-dl;
         devShells = {
           # Shell for app dependencies.
           #
