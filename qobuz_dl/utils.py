@@ -165,6 +165,15 @@ def smart_discography_filter(
 def format_duration(duration):
     return time.strftime("%H:%M:%S", time.gmtime(duration))
 
+def sanitize_filename(filename):
+    return "".join(
+        c for c in filename if c.isalnum() or c in (" ", "-", "_", ".", "(", ")")
+    )
+
+def sanitize_filepath(file_path):
+    return "".join(
+        c for c in file_path if c.isalnum() or c in (" ", "-", "_", ".", "(", ")", "/")
+    )
 
 def create_and_return_dir(directory):
     fix = os.path.normpath(directory)

@@ -3,7 +3,8 @@ import os
 from typing import Tuple
 
 import requests
-from pathvalidate import sanitize_filename, sanitize_filepath
+# from pathvalidate import sanitize_filename, sanitize_filepath #TODO: REMOVE
+from qobuz_dl.utils import sanitize_filename, sanitize_filepath
 from tqdm import tqdm
 
 import qobuz_dl.metadata as metadata

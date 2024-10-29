@@ -4,7 +4,8 @@ import sys
 
 import requests
 from bs4 import BeautifulSoup as bso
-from pathvalidate import sanitize_filename
+
+from qobuz_dl.utils import sanitize_filename
 
 from qobuz_dl.bundle import Bundle
 from qobuz_dl import downloader, qopy

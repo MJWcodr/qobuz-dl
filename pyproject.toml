@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "qobuz-dl"
+version = "0.9.9.2"
+description = "A command line tool to download music from Qobuz"
+authors = ["Victor Nogales <vhnz98@gmail.com>", "Matthias Wünsch <matthias@wuensch.xyz>"]
+license = "GPL-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+# pathvalidate = "^3.2.1"
+requests = "^2.32.3"
+mutagen = "^1.47.0"
+tqdm = "^4.66.6"
+pick = "^2.4.0"
+beautifulsoup4 = "^4.12.3"
+colorama = "^0.4.6"
+
+[tool.poetry.scripts]
+qobuz-dl = "qobuz_dl.cli:main"
+qdl = "qobuz_dl.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
