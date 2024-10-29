@@ -126,7 +126,7 @@ It is possible to set the following environment variables:
 | --- | --- |
 | `QOBUZ_CONFIG_PATH` | Path to the config file |
 | `QOBUZ_DB_PATH` | Path to the database file |
-| `QOBUZ_FILE_PATH` | Path to the folder in which configuration resides |
+| `QOBUZ_PATH` | Path to the folder in which configuration resides |
 
 Reset your config file
 ```
