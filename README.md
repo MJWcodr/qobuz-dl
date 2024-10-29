@@ -120,6 +120,14 @@ qobuz-dl lucky jay z story of oj --type track --no-cover
 Run `qobuz-dl lucky --help` for more info.
 
 ### Other
+Use Environment Variables to set your configuration.
+It is possible to set the following environment variables:
+| Variable | Description |
+| --- | --- |
+| `QOBUZ_CONFIG_PATH` | Path to the config file |
+| `QOBUZ_DB_PATH` | Path to the database file |
+| `QOBUZ_FILE_PATH` | Path to the folder in which configuration resides |
+
 Reset your config file
 ```
 qobuz-dl -r

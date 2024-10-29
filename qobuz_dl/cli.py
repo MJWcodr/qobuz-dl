@@ -16,15 +16,27 @@ logging.basicConfig(
     format="%(message)s",
 )
 
+
+# Set Variables
 if os.name == "nt":
     OS_CONFIG = os.environ.get("APPDATA")
 else:
     OS_CONFIG = os.path.join(os.environ["HOME"], ".config")
 
-CONFIG_PATH = os.path.join(OS_CONFIG, "qobuz-dl")
-CONFIG_FILE = os.path.join(CONFIG_PATH, "config.ini")
-QOBUZ_DB = os.path.join(CONFIG_PATH, "qobuz_dl.db")
+if os.environ.get("QOBUZ_PATH"):
+    CONFIG_PATH = os.environ["QOBUZ_PATH"]
+else:
+    CONFIG_PATH = os.path.join(OS_CONFIG, "qobuz-dl")
 
+if os.environ.get("QOBUZ_CONFIG_FILE"):
+    CONFIG_FILE = os.environ["QOBUZ_CONFIG_FILE"]
+else:
+    CONFIG_FILE = os.path.join(CONFIG_PATH, "qobuz-dl.db")
+
+if os.environ.get("QOBUZ_DB_PATH"):
+    QOBUZ_DB = os.environ["QOBUZ_DB_PATH"]
+else:
+    QOBUZ_DB = os.path.join(CONFIG_PATH, "qobuz_dl.db")
 
 def _reset_config(config_file):
     logging.info(f"{YELLOW}Creating config file: {config_file}")
